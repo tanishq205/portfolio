@@ -2,16 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './style.css';
 
-// Animation variants for Framer Motion
+// Import Icons
+import { 
+  FaGithub, 
+  FaLinkedin, 
+  FaInstagram 
+} from 'react-icons/fa';
+import { 
+  FiMail, 
+  FiPhone, 
+  FiExternalLink 
+} from 'react-icons/fi';
+
+// Animation variants
 const sectionVariant = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { 
-      duration: 0.6,
-      ease: "easeOut"
-    } 
+    transition: { duration: 0.6, ease: "easeOut" } 
   }
 };
 
@@ -19,9 +28,7 @@ const cardContainerVariant = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2 // This makes cards appear one by one
-    }
+    transition: { staggerChildren: 0.1 }
   }
 };
 
@@ -34,7 +41,6 @@ const cardVariant = {
 export default function App() {
   const [projects, setProjects] = useState([]);
 
-  // Fetch project data from the JSON file
   useEffect(() => {
     fetch('/projects.json')
       .then((response) => response.json())
@@ -63,14 +69,41 @@ export default function App() {
             <h2>Computer Engineering Student & FIDE Arbiter</h2>
             <p>Curchorem, Goa</p>
           </div>
-          <div className="hero-contact">
-            <a href="mailto:kavlekartanishq@gmail.com">kavlekartanishq@gmail.com</a>
-            <a href="tel:9373843024">9373843024</a>
+          
+          <div className="hero-contact-info">
+            <a href="mailto:kavlekartanishq@gmail.com">
+              <FiMail /> kavlekartanishq@gmail.com
+            </a>
+            <a href="tel:9373843024">
+              <FiPhone /> 9373843024
+            </a>
           </div>
+
           <div className="social-links">
-            <a href="https://github.com/tanishq205" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/tanishqkav" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://instagram.com/tan_ishq.__" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <motion.a 
+              href="https://github.com/tanishq205" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, y: -2 }}
+            >
+              <FaGithub />
+            </motion.a>
+            <motion.a 
+              href="https://linkedin.com/in/tanishqkav" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, y: -2 }}
+            >
+              <FaLinkedin />
+            </motion.a>
+            <motion.a 
+              href="https://instagram.com/tan_ishq.__" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, y: -2 }}
+            >
+              <FaInstagram />
+            </motion.a>
           </div>
         </div>
       </motion.header>
@@ -107,7 +140,12 @@ export default function App() {
           viewport={{ once: true, amount: 0.1 }}
         >
           {projects.map((project) => (
-            <motion.div key={project.id} className="project-card" variants={cardVariant}>
+            <motion.div 
+              key={project.id} 
+              className="project-card" 
+              variants={cardVariant}
+              whileHover={{ scale: 1.03 }}
+            >
               <span className="project-category">{project.category}</span>
               <h3>{project.title}</h3>
               <p>{project.description}</p>
@@ -117,8 +155,13 @@ export default function App() {
                 ))}
               </div>
               {project.link && (
-                <a href={project.link} target="_blank" rel="noopener noreferrer">
-                  View Project
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="project-link"
+                >
+                  View Project <FiExternalLink />
                 </a>
               )}
             </motion.div>
@@ -128,7 +171,6 @@ export default function App() {
 
       {/* --- EXPERIENCE & EDUCATION --- */}
       <div className="grid-2-col">
-        {/* --- EXPERIENCE --- */}
         <motion.section
           variants={sectionVariant}
           initial="hidden"
@@ -146,7 +188,6 @@ export default function App() {
           </div>
         </motion.section>
 
-        {/* --- EDUCATION --- */}
         <motion.section
           variants={sectionVariant}
           initial="hidden"
@@ -166,7 +207,6 @@ export default function App() {
           </div>
         </motion.section>
       </div>
-
     </div>
   );
 }
