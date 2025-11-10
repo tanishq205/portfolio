@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "category": "Hackathon",
+    "title": "Campus Connect (Inception NIT Goa 2025)",
+    "description": "Developed a full-stack website for collaboration in projects between students.",
+    "tags": ["Full-Stack", "React", "Node.js"]
+  },
+  {
+    "id": 2,
+    "category": "Hackathon",
+    "title": "Goan Artists Connect (Technix 2023)",
+    "description": "Developed website for connecting local Goan artists to their customers.",
+    "tags": ["Web", "HTML/CSS"]
+  },
+  {
+    "id": 3,
+    "category": "Hackathon",
+    "title": "Rural Doctor Connect (Inspirus 2023)",
+    "description": "Developed a website for rural villages to connect with doctors during emergencies.",
+    "tags": ["Web", "Emergency Tech"]
+  },
+  {
+    "id": 4,
+    "category": "Project",
+    "title": "Avinya - College Event Website",
+    "description": "Designed and developed the official website for a college event.",
+    "link": "https://avinya.dbcegoa.ac.in",
+    "tags": ["Web Design", "College Event"]
+  },
+  {
+    "id": 5,
+    "category": "Project",
+    "title": "Automatic Chess Board",
+    "description": "An IoT project that could detect the opponent's move, process it, and make its own move.",
+    "tags": ["IoT", "Chess", "Hardware"]
+  },
+  {
+    "id": 6,
+    "category": "Internship",
+    "title": "School Management System",
+    "description": "Developed School Management System using Angular JS, Node.js and MySQL.",
+    "tags": ["Angular", "Node.js", "MySQL"]
+  }
+]
